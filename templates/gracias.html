@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boda Carol & Fernando</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/index.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="particles-js"></div>
+
+    <img src="{{ url_for('static', filename='img/esquina.png') }}" class="esquina-body top-left">
+    <img src="{{ url_for('static', filename='img/esquina.png') }}" class="esquina-body top-right">
+    <img src="{{ url_for('static', filename='img/esquina.png') }}" class="esquina-body bottom-left">
+    <img src="{{ url_for('static', filename='img/esquina.png') }}" class="esquina-body bottom-right">
+
+    <div class="main-container">
+        <div class="border-decoration card-top-left"></div>
+        <div class="border-decoration card-top-right"></div>
+        <div class="border-decoration card-bottom-left"></div>
+        <div class="border-decoration card-bottom-right"></div>
+        
+
+        <header class="hero">
+            <img src="{{ url_for('static', filename='img/trifuerza.png') }}" alt="Trifuerza" class="logo-gold" style="width: 100px;">
+            <h1>Respuesta Enviada</h1>
+            <h1>¡Gracias!</h1>
+        </header>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
+</body>
+</html>

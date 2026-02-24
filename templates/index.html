@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boda Carol & Fernando</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/index.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="particles-js"></div>
+
+    <img src="{{ url_for('static', filename='img/esquina.png') }}" class="esquina-body top-left">
+    <img src="{{ url_for('static', filename='img/esquina.png') }}" class="esquina-body top-right">
+    <img src="{{ url_for('static', filename='img/esquina.png') }}" class="esquina-body bottom-left">
+    <img src="{{ url_for('static', filename='img/esquina.png') }}" class="esquina-body bottom-right">
+
+    <div class="main-container">
+        <div class="border-decoration card-top-left"></div>
+        <div class="border-decoration card-top-right"></div>
+        <div class="border-decoration card-bottom-left"></div>
+        <div class="border-decoration card-bottom-right"></div>
+        
+
+        <header class="hero">
+            <img src="{{ url_for('static', filename='img/trifuerza.png') }}" alt="Trifuerza" class="logo-gold" style="width: 100px;">
+            <h1>Carol & Fernando</h1>
+            <p class="tagline">Únete a nuestra aventura eterna</p>
+            <p class="date">21 . NOV . 2026</p>
+        </header>
+
+        <nav class="menu-acciones">
+            <button onclick="abrirModal('mapa')" class="btn-zelda">UBICACIÓN</button>
+            <button onclick="abrirModal('rsvp')" class="btn-zelda">CONFIRMAR</button>
+            <button onclick="abrirModal('regalos')" class="btn-zelda">MESA DE REGALOS</button>
+        </nav>
+    </div>
+
+    <div id="modal-container" class="modal-overlay" onclick="cerrarModal()">
+        
+        <div id="modal-mapa" class="modal-content" onclick="event.stopPropagation()">
+            <h2>Nuestra Ubicación</h2>
+            <p>Iglesia</p>
+            <!-- PONER LINK DE LA UBICACION -->
+            <div class="map-placeholder">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.9419826866997!2d-98.263294!3d19.0662883!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cfc6f63c5b69cf%3A0x96859649410669ba!2sInstituto%20Miguel%20de%20Cervantes!5e0!3m2!1ses!2smx!4v1771433444340!5m2!1ses!2smx" width="100%" height="250" style="border:0;" allowfullscreen=""></iframe>
+            </div>
+            <p>Salon</p>
+            <div class="map-placeholder">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.9419826866997!2d-98.263294!3d19.0662883!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cfc6f63c5b69cf%3A0x96859649410669ba!2sInstituto%20Miguel%20de%20Cervantes!5e0!3m2!1ses!2smx!4v1771433444340!5m2!1ses!2smx" width="100%" height="250" style="border:0;" allowfullscreen=""></iframe>
+            </div>
+        </div>
+
+        <div id="modal-rsvp" class="modal-content" onclick="event.stopPropagation()">
+            <h2>Confirmar Asistencia</h2>
+            <form action="/confirmar" method="POST">
+                <input type="text" name="nombre" placeholder="Tu nombre completo" required style="width: 90%; padding: 10px; margin: 5px 0;">
+                <select name="asistencia" required style="width: 95%; padding: 10px; margin: 5px 0;">
+                    <option value="" disabled selected>¿Asistirás?</option>
+                    <option value="si">Sí, acepto el reto</option>
+                    <option value="no">No puedo asistir</option>
+                </select>
+                <textarea name="mensaje" placeholder="Mensaje para los novios" style="width: 90%; padding: 10px; margin: 5px 0;"></textarea>
+                <button type="submit" class="btn-zelda" style="margin-top: 15px;">ENVIAR RESPUESTA</button>
+            </form>
+        </div>
+
+        <div id="modal-regalos" class="modal-content" onclick="event.stopPropagation()">
+            <h2>Mesa de Regalos</h2>
+            <p>Tu presencia es nuestro mayor regalo.</p>
+            <!-- Poner link de mesa -->
+            <a href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51936875" class="btn-zelda" style="display:block; text-decoration:none; margin: 10px 0;">VER MESA EN LIVERPOOL</a>
+        </div>
+
+    </div>
+
+    <!-- Musica -->
+    <audio id="musica-zelda" loop>
+        <source src="{{ url_for('static', filename='lullaby.mp3') }}" type="audio/mpeg">
+    </audio>
+
+    <button id="btn-musica" onclick="toggleMusica()" class="btn-zelda" style="position: fixed; bottom: 20px; right: 20px; padding: 12px 20px; border-radius: 30px; z-index: 1000; background-color: var(--crema); font-size: 1rem; box-shadow: 0 4px 6px rgba(0,0,0,0.3);">
+        🎵 Reproducir Música
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
+</body>
+</html>
