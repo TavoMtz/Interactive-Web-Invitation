@@ -1,0 +1,9 @@
+# Ignorar base de datos
+*.db
+boda.db
+
+# Ignorar archivos caché de Python
+__pycache__/
+*.pyc
+.venv/
+env/
