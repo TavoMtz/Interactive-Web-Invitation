@@ -21,7 +21,7 @@ A full-stack web application designed as a digital wedding invitation featuring 
 * particles.js (External library loaded via CDN).
 
 **Backend & Data:**
-* Python 3: Core server-side application logic.
+* Python : Core server-side application logic.
 * Flask: Web micro-framework utilized for routing (@app.route) and rendering views (render_template).
 * SQLite: Lightweight relational database (boda.db) for persistent guest storage.
 
