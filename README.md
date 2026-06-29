@@ -1,46 +1,47 @@
-# 💍 Invitación Web Interactiva
+# Interactive Web Invitation
 
-Una aplicación web full-stack diseñada como una invitación de boda digital con temática sutil de *The Legend of Zelda*. Este proyecto permite a los invitados visualizar los detalles del evento, interactuar con la interfaz y confirmar su asistencia mediante un sistema automatizado conectado a una base de datos.
+A full-stack web application designed as a digital wedding invitation featuring a subtle theme inspired by *The Legend of Zelda*. This project allows guests to view event details, interact with the interface, and confirm their attendance via an automated system connected to a database.
 
-## ✨ Características Principales
+## Core Features
 
-* **UI/UX Temático:** Interfaz elegante en tonos verde y dorado, tipografías clásicas (`Cinzel` y `Cormorant Garamond`) y detalles visuales referentes a la saga de Zelda (Trifuerza, botones personalizados).
-* **Efectos de Partículas:** Integración de `particles.js` configurado a medida para simular polvo mágico o "Hadas de Hyrule" flotando en el fondo (sin líneas conectoras para un look más limpio).
-* **Audio Inmersivo:** Reproductor web integrado que permite al invitado activar/pausar *Zelda's Lullaby* de fondo, respetando las políticas de *autoplay* de los navegadores modernos mediante un botón flotante (Toggle).
-* **Sistema de Modales (SPA):** Navegación fluida de una sola página utilizando ventanas modales para mostrar:
-  * **Ubicaciones:** Mapas embebidos para la iglesia y el salón.
-  * **Mesa de Regalos:** Enlace de redirección externa (Liverpool).
-  * **Confirmación:** Formulario de captura de datos.
-* **Sistema de Registro Seguro:** Backend configurado para recibir peticiones `POST` del formulario, con lógica de validación previa que consulta la base de datos para evitar registros duplicados del mismo invitado.
+* **Themed UI/UX:** Elegant interface styled with green and gold tones, classical typography (Cinzel and Cormorant Garamond), and visual details referencing the Zelda saga (Triforce and custom buttons).
+* **Particle Effects:** Custom-configured integration of particles.js to simulate floating magical dust or "Hyrule Fairies" in the background (optimized without connecting lines for a cleaner appearance).
+* **Immersive Audio:** Integrated web audio player allowing guests to play or pause background music (Zelda's Lullaby), compliant with modern browser autoplay policies via a floating toggle button.
+* **Modal Navigation System (SPA):** Fluid single-page navigation utilizing modal windows to display:
+  * **Locations:** Embedded maps for both the ceremony and reception venues.
+  * **Gift Registry:** External redirection links to commercial platforms.
+  * **RSVP Confirmation:** Data capture form.
+* **Secure Registration System:** Backend configured to process POST requests from the RSVP form, featuring pre-validation logic that queries the database to prevent duplicate registrations from the same guest.
 
-## 🛠️ Tecnologías Utilizadas
+## Tech Stack
 
 **Frontend:**
-* HTML5 / CSS3 (Diseño responsivo, Flexbox, variables CSS, `z-index` layering).
-* JavaScript (Vanilla JS para control del DOM, manipulación de modales y control del objeto `Audio`).
-* `particles.js` (Librería externa por CDN).
+* HTML5 / CSS3 (Responsive design, Flexbox, CSS variables, z-index layering).
+* JavaScript (Vanilla JS for DOM manipulation, modal handling, and Audio object control).
+* particles.js (External library loaded via CDN).
 
-**Backend & Datos:**
-* **Python 3:** Lenguaje principal de la lógica del servidor.
-* **Flask:** Micro-framework web utilizado para el enrutamiento (`@app.route`) y renderizado de vistas (`render_template`).
-* **SQLite:** Base de datos relacional ligera (`boda.db`) para el almacenamiento persistente de los invitados.
+**Backend & Data:**
+* Python 3: Core server-side application logic.
+* Flask: Web micro-framework utilized for routing (@app.route) and rendering views (render_template).
+* SQLite: Lightweight relational database (boda.db) for persistent guest storage.
 
-## Arquitectura de Directorios
-El proyecto sigue la estructura estándar de Flask:
+## Directory Architecture
+
+The project adheres to the standard Flask application structure:
 
 ```text
 BODAZELDA/
 │
-├── app.py                 # Script principal del servidor Flask y rutas
-├── boda.db                # Base de datos SQLite (Tabla: invitados)
+├── app.py                 # Main Flask server script and routing
+├── boda.db                # SQLite database (Table: guests)
 │
 ├── templates/             
-│   └── index.html         # Estructura principal, modales y reproductor
+│   └── index.html         # Core structure, modals, and audio player
 │
-└── static/                # Archivos estáticos públicos
-    ├── index.css          # Hojas de estilo y variables
-    ├── index.js           # Lógica del cliente y configuración de partículas
-    ├── lullaby.mp3        # Pista de audio ambiental
+└── static/                # Public static files
+    ├── index.css          # Stylesheets and custom properties
+    ├── index.js           # Client-side logic and particle configuration
+    ├── lullaby.mp3        # Ambient background audio track
     └── img/
-        ├── esquina.png    # Ornamentos de las esquinas
-        └── trifuerza.png  # Logotipo central
+        ├── esquina.png    # Decorative corner ornaments
+        └── trifuerza.png  # Central Triforce logo
